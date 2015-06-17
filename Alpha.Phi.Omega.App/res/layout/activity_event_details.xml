@@ -1,0 +1,110 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/maroon"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/textView_event_detail_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="TextView"
+        android:textSize="30sp"
+        android:textColor="@color/black" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/SplitLine_Name" >
+
+        <TextView
+            android:id="@+id/textView_event_detail_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.95"
+            android:text="@string/label_text_address"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/button_google_maps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_take_me_there"
+            android:textColor="@color/black" />
+    </LinearLayout>
+    
+	<View
+	    android:id="@+id/SplitLine_Name"
+	    android:layout_width="match_parent"
+	    android:layout_height="2dp"
+	    android:layout_below="@id/textView_event_detail_name"
+	    android:background="@color/gray" />
+	
+    <TextView
+        android:id="@+id/textView_sign_up_date_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/SplitLine_Time"
+        android:text="TextView" />
+
+	<View
+	    android:id="@+id/SplitLine_Desc"
+	    android:layout_width="match_parent"
+	    android:layout_height="2dp"
+	    android:layout_below="@id/textView_sign_up_date_time"
+	    android:paddingBottom="5dp"
+	    android:paddingTop="5dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" >
+
+        <Button
+            android:id="@+id/button_event_details_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.62"
+            android:text="@string/label_signup"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/call_officer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.49"
+            android:text="@string/label_contact_officer"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView_event_detail_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/SplitLine_Desc"
+        android:text="Description"
+        android:textColor="@color/black" />
+
+	<View
+	    android:id="@+id/SplitLine_Time"
+	    android:layout_width="match_parent"
+	    android:layout_height="2dp"
+	    android:layout_below="@id/linearLayout1"
+	    android:background="@color/gray"
+	    android:paddingBottom="10dp"
+	    android:paddingTop="10dp" />
+
+</RelativeLayout>

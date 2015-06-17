@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">APO Events</string>
+    <string name="label_username">Username:</string>
+    <string name="label_password">Password:</string>
+    <string name="label_remember_me">Remember Me?</string>
+    <string name="label_no_events">No Upcoming Events!</string>
+    <string name="button_label_sign_up">Sign Me Up!</string>
+    <string name="label_yes_drive">Yes!</string>
+    <string name="label_no_drive">No. </string>
+    <string name="label_can_you_drive">Can you drive?</string>
+    <string name="label_how_many_people">How many people?</string>
+    <string name="label_lead">Lead?</string>
+    <string name="label_take_me_there">Take Me There!</string>
+    <string name="label_signup">Sign Up</string>
+    <string name="label_contact_officer">Contact Us</string>
+    <string name="label_menu_log_out">Log Out!</string>
+    <string name="label_back">Back</string>
+    <string name="menu_label_event_page">All Events</string>
+    <string name="menu_label_sign_up">Sign Up</string>
+    <string name="label_button_login">Log In</string>
+    <string name="title_event_log_in_activty">Log In</string>
+    <string name="title_event_details_activity">Event Details</string>
+    <string name="title_event_page_activity">Event Page</string>
+    <string name="title_sign_up_activity">Sign Up</string>
+    <string name="label_text_address">2801 Ellendale Place, Los Angeles, CA</string>
+    <string name="default_num_to_drive">0</string>
+
+</resources>

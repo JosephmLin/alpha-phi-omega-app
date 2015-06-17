@@ -1,0 +1,125 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/maroon"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/textView_sign_up_event_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:textSize="30sp"
+        android:padding="20dp"
+        android:text="TEXT HOLDer"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/textView_sign_up_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView_sign_up_event_name"
+        android:padding="20dp"
+        android:text="TextView"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/textView_sign_up_date_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView_sign_up_location"
+        android:padding="20dp"
+        android:text="TextView"
+        android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/button_sign_up_signmeup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="@string/button_label_sign_up"
+        android:textColor="@color/black"
+        android:background="@color/gray" />
+
+    <TextView
+        android:id="@+id/textView_can_you_drive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView_sign_up_date_time"
+        android:layout_marginTop="15dp"
+        android:padding="4dp"
+        android:text="@string/label_can_you_drive"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/black" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup_drive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView_can_you_drive"
+        android:layout_toRightOf="@+id/textView_can_you_drive"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/radio_yes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_yes_drive"
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/radio_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/label_no_drive"
+            android:textColor="@color/black" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/layout_drive_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radioGroup_drive" >
+
+        <TextView
+            android:id="@+id/textView_how_many_people"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="@string/label_how_many_people"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/editText_num_can_drive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="number"
+            android:text="@string/default_num_to_drive"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/checkBox_take_lead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/button_sign_up_signmeup"
+        android:text="@string/label_lead"
+        android:textColor="@color/black" />
+
+</RelativeLayout>

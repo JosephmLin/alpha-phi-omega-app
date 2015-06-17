@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/menu_event_page_log_out" android:title="@string/label_menu_log_out"></item>
+    
+
+</menu>
