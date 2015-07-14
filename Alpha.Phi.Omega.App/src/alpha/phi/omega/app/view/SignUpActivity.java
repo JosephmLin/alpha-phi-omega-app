@@ -1,5 +1,6 @@
 package alpha.phi.omega.app.view;
 
+import alpha.phi.omega.app.R;
 import alpha.phi.omega.app.controller.Session;
 import alpha.phi.omega.app.controller.UserFunctions;
 import alpha.phi.omega.app.model.Event;
@@ -108,6 +109,7 @@ public class SignUpActivity extends Activity {
 		
 		return super.onOptionsItemSelected(item);
 	}
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
 		MenuInflater infl = getMenuInflater();

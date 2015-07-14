@@ -1,9 +1,9 @@
 package alpha.phi.omega.app.view;
 
+import alpha.phi.omega.app.R;
 import alpha.phi.omega.app.controller.Session;
 import alpha.phi.omega.app.controller.UserFunctions;
 import android.app.Activity;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -74,7 +74,7 @@ public class LoginPageActivity extends Activity {
 				else
 				{
 					Log.d(LOGIN_TAG, "LOGIN INVALID");
-					//Throw a toast saying invalid.
+					//Throw a toast saying invalid. Consider making a little red text appear on the bottom of the login screen
 					Toast.makeText(getApplicationContext(), "Login Failed - Please try again!", Toast.LENGTH_SHORT).show();
 				}
 
@@ -94,5 +94,13 @@ public class LoginPageActivity extends Activity {
 	{
 		System.exit(0);
 	}
+
+	/*
+		Additional potential functionality includes making an API call to the excel sheet which displays the current number of hours completed. However, all of this information should be stored on the database as well.
+		The issue might be with the people failing to abide by the choice to do more work. So I need to think of something simpler.
+
+		There should be a Google Doc link. Maybe make a new database thing with a Google link. Make a small webpage to allow the VP of Membership to update the current Master Doc link. It should be pretty quick to do. Maybe might have to write a script for that.
+		This Google Doc link will speak also to this app's master doc section. This should make the updating process of the master doc fairly simple.
+	 */
 }
 

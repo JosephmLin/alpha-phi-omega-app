@@ -10,11 +10,8 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONTokener;
-
 import android.content.Context;
 import android.util.Log;
 
@@ -47,6 +44,8 @@ public class Session {
 	{
 		return firstname;
 	}
+	//Eventually User Status sshould be allowed to remove people from specific events and such.
+
 	public static String getUserStatus()
 	{
 		return userStatus;
@@ -89,13 +88,13 @@ public class Session {
 			if (reader != null)
 				reader.close();
 		} catch (FileNotFoundException e) {
-			// we will ignore this one, since it happens when we start fresh
+			// we will ignore this one, since it happens when we start with a new build. Also, not having this file should not be ground breaking.
 			Log.e(tag, "" + e.getLocalizedMessage());
 		} catch (IOException e) {
-			// we will ignore this one, since it happens when we start fresh
+			// we will ignore this one, since it happens when we start with a new build.
 			Log.e(tag, ""+e.getLocalizedMessage());
 		} catch (JSONException e) {
-			// we will ignore this one, since it happens when we start fresh
+			// we will ignore this one, since it happens when we start with a new build.
 			Log.e(tag, ""+e.getLocalizedMessage());
 		}
 	}

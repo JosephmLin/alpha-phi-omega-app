@@ -37,6 +37,7 @@ public class UserFunctions {
 		
 		Log.d(SESSION_TAG, "Declared Private Variables" + params.toString());
 		try{
+			//This functionality needs to be changed in order to adapt for the assumption of inconsistent internet onnectivity. Perhaps have a loading screen while this occurs. If, after x amount of time there is no response, pass by an invalid3
 			logInAsyncThread = new LogInAsync(httpURL, params);
 			logInAsyncThread.execute();
 			logInAsyncThread.get();

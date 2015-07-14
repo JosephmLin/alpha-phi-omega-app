@@ -1,5 +1,6 @@
 package alpha.phi.omega.app.view;
 
+import alpha.phi.omega.app.R;
 import alpha.phi.omega.app.controller.Session;
 import alpha.phi.omega.app.controller.UserFunctions;
 import alpha.phi.omega.app.model.Event;
@@ -28,6 +29,13 @@ public class EventDetailsActivity extends Activity {
 	Button button_sign_up;
 	Button button_call_officer;
 	Event this_event;
+	/*
+	First order of business may be to add a list of people going. Put it up in a log then add it in.
+	When you click the name you can swipe it left and a box will pop up saying "Do you want to remove this person?"
+	If you swipe to the right another box will pop up with their contat information (phone etc) If their phone is not provided, a toast will pop up saying
+	"No contact information for this person. Shame on them!"
+
+	*/
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -56,6 +64,7 @@ public class EventDetailsActivity extends Activity {
 		label_event_description.setText("Description:" + this_event.getDescription());
 		//Get Google Maps Application
 		button_google_maps.setOnClickListener(new OnClickListener(){
+			@Override
 			public void onClick(View v) {
 				//Looks up the address inputed online. This is dependant upon the actual people documenting the location.
 				String address ="";
@@ -124,6 +133,7 @@ public class EventDetailsActivity extends Activity {
 		
 		return super.onOptionsItemSelected(item);
 	}
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
 		MenuInflater infl = getMenuInflater();

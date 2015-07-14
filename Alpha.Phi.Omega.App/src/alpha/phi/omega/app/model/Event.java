@@ -6,9 +6,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.apache.http.ParseException;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import android.net.ParseException;
 
 public class Event implements Serializable
 {
@@ -153,6 +154,7 @@ public class Event implements Serializable
 		}
 		
 	}
+	@Override
 	public String toString()
 	{
 		return event_name;

@@ -10,7 +10,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import alpha.phi.omega.app.model.Event;
-import alpha.phi.omega.controller.JSONParser;
+import alpha.phi.omega.app.model.EventData;
 
 public class GetEventDataAsync extends AsyncTask<Void, Void, Void> {
 

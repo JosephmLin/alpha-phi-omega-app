@@ -1,5 +1,6 @@
 package alpha.phi.omega.app.view;
 
+import alpha.phi.omega.app.R;
 import alpha.phi.omega.app.controller.Session;
 import alpha.phi.omega.app.controller.UserFunctions;
 import alpha.phi.omega.app.model.Event;
@@ -20,6 +21,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class EventPageActivity extends ListActivity {
+	//Consider expanding this to allow them to sort through previous past events as well.
 	ArrayList<Event> allEvents;
 	private EventAdapter adapter;
 	private String tag = "event page activity tag";
@@ -30,6 +32,9 @@ public class EventPageActivity extends ListActivity {
 		Log.d(tag, "content view established");
 		allEvents = EventData.loadAllEventsFromHTTP(getApplicationContext());
 		Log.d(tag, "events loaded from HTTP");
+		//Need to highlight green if signed up.
+		//Need to look up what this does. (Adapter)
+		//EventAdapter fills
 		adapter = new EventAdapter(this, R.layout.event_tile, allEvents);
 		//Populates the adapter with the necessary information.
 		setListAdapter(adapter);
@@ -42,10 +47,12 @@ public class EventPageActivity extends ListActivity {
 				EventDetailsActivity.class);
 		i.putExtra(EventDetailsActivity.EXTRA_EVENT,
 				allEvents.get(position));
+
 		startActivity(i);
 		
 
 	}
+	@Override
 	protected void onPause() {
 		// Called after onStart() as Activity comes to foreground.
 		super.onPause();

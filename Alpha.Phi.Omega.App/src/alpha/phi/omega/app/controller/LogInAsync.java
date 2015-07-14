@@ -1,12 +1,8 @@
 package alpha.phi.omega.app.controller;
 
-import java.util.List;
-
-import org.apache.http.NameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
