@@ -18,6 +18,7 @@ public class LogInAsync extends AsyncTask<Void, Void, Void> {
 
 	@Override
 	public Void doInBackground(Void... nothing) {
+		
 		Log.d(tag, "Thread Start.");
 		JSONParser a = new JSONParser();
 		JSONObject json = a.getJSONFromUrl(url, params);

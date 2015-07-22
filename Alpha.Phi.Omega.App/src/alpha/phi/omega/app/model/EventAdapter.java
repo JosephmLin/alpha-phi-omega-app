@@ -15,27 +15,32 @@ public class EventAdapter extends BaseAdapter{
 	Activity context;
 	int layoutResourceId;
 	ArrayList<Event> all_events;
+	//layoutResourceID = R's id. All Events
 	public EventAdapter(Activity context, int layoutResourceId, ArrayList<Event> all_events) 
 	{
 		this.layoutResourceId = layoutResourceId;
 		this.context = context;
 		this.all_events = all_events;
 	}
+
 	@Override
 	public int getCount()
 	{
 		return all_events.size();
 	}
+
 	@Override
 	public Event getItem(int position)
 	{
 		return all_events.get(position);
 	}
+
 	@Override
 	public long getItemId(int position)
 	{
 		return position;
 	}
+
 	@Override
 	public View getView(int position, View view, ViewGroup parent) {
 

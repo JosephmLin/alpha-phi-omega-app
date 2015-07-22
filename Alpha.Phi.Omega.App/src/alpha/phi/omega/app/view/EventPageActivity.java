@@ -38,15 +38,18 @@ public class EventPageActivity extends ListActivity {
 		adapter = new EventAdapter(this, R.layout.event_tile, allEvents);
 		//Populates the adapter with the necessary information.
 		setListAdapter(adapter);
+		Toast.makeText(this, "LIST CREATED", Toast.LENGTH_SHORT).show();
 	}
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		//Launches event
+		Toast.makeText(this, "On List Item Clicked", Toast.LENGTH_SHORT).show();
 		super.onListItemClick(l, v, position, id);
 		Intent i = new Intent(getApplicationContext(),
 				EventDetailsActivity.class);
 		i.putExtra(EventDetailsActivity.EXTRA_EVENT,
 				allEvents.get(position));
+		Toast.makeText(this, "On List Item Clicked", Toast.LENGTH_SHORT).show();
 
 		startActivity(i);
 		

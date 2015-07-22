@@ -10,17 +10,20 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class EventDetailsActivity extends Activity {
 	public static String EXTRA_EVENT = "alpha.phi.omega.app.view.extra_event";
+	static String tag = "alpha.phi.omega.app.EventDetailsActivitiy";
 	TextView label_event_description;
 	TextView label_event_location;
 	TextView label_event_date_time;
@@ -39,7 +42,20 @@ public class EventDetailsActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Toast.makeText(this, "Event Details Created", Toast.LENGTH_SHORT).show();
+
+		//Get the event from the intent
+		Intent data = getIntent();
+
+		this_event = (Event)data.getSerializableExtra(EXTRA_EVENT);
+		Log.d(tag, "EVENT EXTRA " + this_event);
+
+		//Change the Title Bar
+		requestWindowFeature(Window.FEATURE_ACTION_BAR);
+
+
 		setContentView(R.layout.activity_event_details);
+		getActionBar().setTitle(this_event.getName());
 		//Get all elements
 		
 		label_event_name = (TextView)findViewById(R.id.textView_event_detail_name);
@@ -51,11 +67,7 @@ public class EventDetailsActivity extends Activity {
 		button_google_maps = (Button)findViewById(R.id.button_google_maps);
 		button_sign_up = (Button)findViewById(R.id.button_event_details_sign_up);
 		button_call_officer = (Button)findViewById(R.id.call_officer);
-		//Get the event from the intent
-		Intent data = getIntent();
-		this_event = (Event)data.getSerializableExtra(EXTRA_EVENT);
-		//Change the Title Bar
-		getActionBar().setTitle(this_event.getName());
+
 		//Populate page
 		label_event_name.setText("Event Name:" + this_event.getName());
 		
