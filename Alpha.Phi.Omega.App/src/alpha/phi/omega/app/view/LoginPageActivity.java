@@ -4,6 +4,7 @@ import alpha.phi.omega.app.R;
 import alpha.phi.omega.app.controller.Session;
 import alpha.phi.omega.app.controller.UserFunctions;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -54,6 +55,7 @@ public class LoginPageActivity extends Activity {
 				Log.d(LOGIN_TAG, "EXTRACTING USERNAME AND PASSWORD");
 				username = login_username.getText().toString();
 				password = login_password.getText().toString();
+				Session.setPending(true);
 				// TODO Auto-generated method stub;
 				if (apo_login())
 				{
@@ -85,8 +87,8 @@ public class LoginPageActivity extends Activity {
 	{
 		Log.d(LOGIN_TAG, "Going into User Functions");
 		//UserFunctions has the changes Session boolean to allow for log in.
-		UserFunctions.loginUser(username, password, getApplicationContext());
-		
+
+		UserFunctions.loginUser(username, password, getApplicationContext(), this);
 		return Session.isUserLoggedIn();
 	}
 	@Override //Clears the back stack 100%

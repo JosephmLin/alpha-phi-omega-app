@@ -29,7 +29,6 @@ public class GetEventDataAsync extends AsyncTask<Void, Void, Void> {
 		//Get json object from the parser that decrypts the JSON sent back from the http request.
 		Log.d(tag, "JSON received");
 		try{
-			
 			if (json.getInt("success") == 1)
 			{
 				Log.d(tag, "Events Received.");

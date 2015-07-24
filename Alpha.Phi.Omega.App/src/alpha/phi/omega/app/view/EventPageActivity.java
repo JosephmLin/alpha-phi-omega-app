@@ -11,6 +11,8 @@ import java.util.ArrayList;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -38,18 +40,15 @@ public class EventPageActivity extends ListActivity {
 		adapter = new EventAdapter(this, R.layout.event_tile, allEvents);
 		//Populates the adapter with the necessary information.
 		setListAdapter(adapter);
-		Toast.makeText(this, "LIST CREATED", Toast.LENGTH_SHORT).show();
 	}
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		//Launches event
-		Toast.makeText(this, "On List Item Clicked", Toast.LENGTH_SHORT).show();
 		super.onListItemClick(l, v, position, id);
 		Intent i = new Intent(getApplicationContext(),
 				EventDetailsActivity.class);
 		i.putExtra(EventDetailsActivity.EXTRA_EVENT,
 				allEvents.get(position));
-		Toast.makeText(this, "On List Item Clicked", Toast.LENGTH_SHORT).show();
 
 		startActivity(i);
 		
@@ -73,6 +72,12 @@ public class EventPageActivity extends ListActivity {
 			UserFunctions.logoutUser();
 			startActivity(i2);
 			finish();
+			return true;
+		case R.id.menu_event_page_master_doc:
+			String url = "https://docs.google.com/spreadsheets/d/1EDrMQ5FyLnP7a4u2GfGDOieZcqIflkS84bChskD_7bo/edit?usp=sharing";
+			Intent i = new Intent(Intent.ACTION_VIEW);
+			i.setData(Uri.parse(url));
+			startActivity(i);
 			return true;
 		}
 		

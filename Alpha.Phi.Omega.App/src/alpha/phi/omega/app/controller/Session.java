@@ -21,17 +21,19 @@ public class Session {
 	private static String password;
 	private static String firstname;
 	private static String userStatus;
+	private static boolean isUserPending = false;
 	private final static String FILENAME = "session.json";
 	final static String tag = "Session Tag";
 	public static void setLogIn(boolean isLoggedIn)
 	{
 		loggedIn = isLoggedIn;
 	}
-
+	public static void setPending(boolean userPending) {isUserPending = userPending;}
 	public static boolean isUserLoggedIn()
 	{
 		return loggedIn;
 	}
+	public static boolean isLoginPending() {return isUserPending;}
 	public static String getUsername()
 	{
 		return username;

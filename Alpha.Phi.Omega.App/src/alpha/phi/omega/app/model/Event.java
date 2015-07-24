@@ -33,6 +33,7 @@ public class Event implements Serializable
 	String address;
 	String event_type;
 	String phonenumber;
+	boolean userAttending = false;
 	public Event(){
 		super();
 	}
@@ -46,6 +47,8 @@ public class Event implements Serializable
 		event_id = JSON_event.getString(JSON_event_id);
 		address = JSON_event.getString(JSON_address);
 		event_type = JSON_event.getString(JSON_event_type);
+
+		userAttending = findUserAttending();
 	}
 	public void setPhoneNumber(String phonum)
 	{
@@ -158,6 +161,10 @@ public class Event implements Serializable
 	public String toString()
 	{
 		return event_name;
+	}
+	public boolean findUserAttending()
+	{
+		return true;
 	}
 
 }

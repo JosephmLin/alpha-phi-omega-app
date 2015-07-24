@@ -11,6 +11,8 @@
         android:padding="4dp"
         android:background="@color/gray"
         android:layout_gravity="left">
+
+
             
     </ListView>
 	

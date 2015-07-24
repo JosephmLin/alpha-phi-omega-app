@@ -10,6 +10,7 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
+import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,8 +27,10 @@ public class EventDetailsActivity extends Activity {
 	static String tag = "alpha.phi.omega.app.EventDetailsActivitiy";
 	TextView label_event_description;
 	TextView label_event_location;
+	TextView label_event_address;
 	TextView label_event_date_time;
 	TextView label_event_name;
+
 	Button button_google_maps;
 	Button button_sign_up;
 	Button button_call_officer;
@@ -42,13 +45,11 @@ public class EventDetailsActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Toast.makeText(this, "Event Details Created", Toast.LENGTH_SHORT).show();
 
 		//Get the event from the intent
 		Intent data = getIntent();
 
 		this_event = (Event)data.getSerializableExtra(EXTRA_EVENT);
-		Log.d(tag, "EVENT EXTRA " + this_event);
 
 		//Change the Title Bar
 		requestWindowFeature(Window.FEATURE_ACTION_BAR);
@@ -62,18 +63,23 @@ public class EventDetailsActivity extends Activity {
 		label_event_name.setTypeface(null, Typeface.BOLD);
 		label_event_location = (TextView)findViewById(R.id.textView_event_detail_location);
 		label_event_location.setTypeface(null, Typeface.ITALIC);
+		label_event_address = (TextView)findViewById(R.id.textView_event_detail_address);
+		label_event_address.setTypeface(null, Typeface.ITALIC);
 		label_event_description = (TextView)findViewById(R.id.textView_event_detail_desc);
 		label_event_date_time = (TextView)findViewById(R.id.textView_sign_up_date_time);
+
 		button_google_maps = (Button)findViewById(R.id.button_google_maps);
 		button_sign_up = (Button)findViewById(R.id.button_event_details_sign_up);
 		button_call_officer = (Button)findViewById(R.id.call_officer);
 
 		//Populate page
-		label_event_name.setText("Event Name:" + this_event.getName());
+		label_event_name.setText(this_event.getName());
 		
-		label_event_location.setText("Location:" + this_event.getLocation() + " @ " + this_event.getAddress());
-		label_event_date_time.setText("Time:" + this_event.getStartTime() + " — " + this_event.getEndTime());
-		label_event_description.setText("Description:" + this_event.getDescription());
+		label_event_location.setText("Location:" + this_event.getLocation());
+		label_event_address.setText("Address:" + this_event.getAddress());
+		label_event_date_time.setText(this_event.getStartTime() + " to " + this_event.getEndTime());
+		String desc = customFormatting(this_event.getDescription());
+		label_event_description.setText(Html.fromHtml(desc));
 		//Get Google Maps Application
 		button_google_maps.setOnClickListener(new OnClickListener(){
 			@Override
@@ -158,5 +164,49 @@ public class EventDetailsActivity extends Activity {
 		Intent i = new Intent(getApplicationContext(), EventPageActivity.class);
 		startActivity(i);
 		finish();
+	}
+	private String customFormatting(String s)
+	{
+		if (s.contains("[b]"))
+		{
+			s = s.replace("[b]", "<b>");
+			s = s.replace("[/b]", "</b>");
+		}
+		if (s.contains("[i]"))
+		{
+			s = s.replace("[i]", "<i>");
+			s = s.replace("[/i]", "</i>");
+		}
+		if (s.contains("[u]"))
+		{
+			s = s.replace("[u]", "<u>");
+			s = s.replace("[/u]", "</u>");
+		}
+		if (s.contains("[url]"))
+		{
+			s = s.replace("[url]", "");
+			s = s.replace("[/url]", "");
+		}
+		if (s.contains("[list]"))
+		{
+			s = s.replace("[list]", "<ul>");
+			s = s.replace("[/list]", "</ul>");
+		}
+		if (s.contains("[numbered]"))
+		{
+			s = s.replace("[numbered]", "<ol>");
+			s = s.replace("[/numbered]", "</ol>");
+		}
+		if (s.contains("[item]"))
+		{
+			s = s.replace("[item]", "<li>");
+			s = s.replace("[/item]", "</li>");
+		}
+		if (s.contains("\n"))
+		{
+			s = s.replace("\n", "<br>");
+		}
+		Log.d(tag, s);
+		return s;
 	}
 }

@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/maroon"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,19 +22,41 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/SplitLine_Name" >
+        android:layout_below="@+id/SplitLine_Name"
+        android:orientation="horizontal"
+        android:weightSum="1">
 
-        <TextView
-            android:id="@+id/textView_event_detail_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.95"
-            android:text="@string/label_text_address"
-            android:textColor="@color/black" />
 
+        <LinearLayout
+        android:id="@+id/locationAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+            >
+            <TextView
+                android:id="@+id/textView_event_detail_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.95"
+                android:text="@string/label_text_address"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/textView_event_detail_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.95"
+                android:text="@string/label_text_address"
+                android:textColor="@color/black"
+                />
+        </LinearLayout>
         <Button
+            android:layout_weight="1.02"
             android:id="@+id/button_google_maps"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/label_take_me_there"
             android:textColor="@color/black" />
@@ -46,14 +67,24 @@
 	    android:layout_width="match_parent"
 	    android:layout_height="2dp"
 	    android:layout_below="@id/textView_event_detail_name"
-	    android:background="@color/gray" />
-	
+	    android:background="@color/gray"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"/>
+    <View
+        android:id="@+id/SplitLine_Time"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/linearLayout1"
+        android:background="@color/gray"
+        android:paddingBottom="10dp"
+        android:paddingTop="15dp" />
+
     <TextView
         android:id="@+id/textView_sign_up_date_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/SplitLine_Time"
+        android:layout_below="@id/SplitLine_Time"
         android:text="TextView" />
 
 	<View
@@ -96,15 +127,10 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@id/SplitLine_Desc"
         android:text="Description"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:autoLink="web"
+        android:scrollbars="vertical"/>
 
-	<View
-	    android:id="@+id/SplitLine_Time"
-	    android:layout_width="match_parent"
-	    android:layout_height="2dp"
-	    android:layout_below="@id/linearLayout1"
-	    android:background="@color/gray"
-	    android:paddingBottom="10dp"
-	    android:paddingTop="10dp" />
+
 
 </RelativeLayout>

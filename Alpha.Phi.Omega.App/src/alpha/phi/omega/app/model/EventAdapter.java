@@ -2,6 +2,7 @@ package alpha.phi.omega.app.model;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import alpha.phi.omega.app.R;
 import android.app.Activity;
@@ -21,6 +22,7 @@ public class EventAdapter extends BaseAdapter{
 		this.layoutResourceId = layoutResourceId;
 		this.context = context;
 		this.all_events = all_events;
+
 	}
 
 	@Override
@@ -63,6 +65,7 @@ public class EventAdapter extends BaseAdapter{
 			//This is where I would make an API call to check whether or not a user is signed up ot an event.
 			//Something like:
 			//a.setColor(green);
+
 		} 
 		else gridItem = view;
 		

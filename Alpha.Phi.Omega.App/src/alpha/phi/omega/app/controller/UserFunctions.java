@@ -1,6 +1,11 @@
 package alpha.phi.omega.app.controller;
 import alpha.phi.omega.app.model.Event;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.NetworkOnMainThreadException;
 import android.util.Log;
 
@@ -21,11 +26,10 @@ public class UserFunctions {
 	static String httpURL;
 	/**
 	 * function make Login Request
-	 * @param email
-	 * @param password
+
 	 * */
 	//Sends an asynchronous task request. Also waits for each request to return before logging in.
-	public static void loginUser(String username, String password, Context context){
+	public static void loginUser(String username, String password, Context context, Activity login){
 		Log.d(SESSION_TAG, "Starting Log In Attempt");
 		// Building Parameters
 
@@ -38,9 +42,17 @@ public class UserFunctions {
 		Log.d(SESSION_TAG, "Declared Private Variables" + params.toString());
 		try{
 			//This functionality needs to be changed in order to adapt for the assumption of inconsistent internet onnectivity. Perhaps have a loading screen while this occurs. If, after x amount of time there is no response, pass by an invalid3
-			logInAsyncThread = new LogInAsync(httpURL, params);
-			logInAsyncThread.execute();
+			logInAsyncThread = new LogInAsync(httpURL, params, login);
+
+			if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB ) {
+				logInAsyncThread.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+			} else {
+				logInAsyncThread.execute();
+			}
+
+			Log.d(SESSION_TAG, "Log In Async Thread Started");
 			logInAsyncThread.get();
+			//logInAsyncThread.get();
 			return;
 		}
 		catch(NetworkOnMainThreadException nomte)
@@ -49,7 +61,7 @@ public class UserFunctions {
 			return;
 		}
 		catch (Exception e) {
-			Log.d(SESSION_TAG, "In thread connection drop");
+			Log.d(SESSION_TAG, "In thread connection drop" + e.getMessage(), e);
 			return;
 		}
 	}

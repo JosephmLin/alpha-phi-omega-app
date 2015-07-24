@@ -50,7 +50,6 @@ public class JSONParser {
 			urlConnection.setConnectTimeout(30000);
 			urlConnection.setRequestProperty("Content-Type", "application/json");
 			urlConnection.connect();
-
 			InputStream is= urlConnection.getInputStream();
 			if(is == null)
 			{
@@ -61,7 +60,6 @@ public class JSONParser {
 			String line = null;
 			String total_line = "";
 			Log.d(tag, "Starting the parsing process");
-
 			try{
 				while ((line = reader.readLine()) != null)
 				{
@@ -71,6 +69,7 @@ public class JSONParser {
 					is.close();
 					return null;
 				}
+				Thread.sleep(100);
 				is.close();
 			}
 			catch (IOException ioe)
@@ -80,10 +79,11 @@ public class JSONParser {
 			// try parse the string to a JSON object
 			try {
 				jObj = new JSONObject(total_line);
+				Thread.sleep(100);
+				Log.d(tag, jObj.toString());
 			} catch (JSONException e) {
 				Log.e("JSON Parser", "Error parsing data " + e.toString());
 			}
-
 			// return JSON String
 
 		} 
